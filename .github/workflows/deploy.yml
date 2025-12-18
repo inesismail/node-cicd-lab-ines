@@ -21,7 +21,7 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "./"
-        target: "/var/www/node-cicd-ec2-ines"
+        target: "/var/www/node-cicd-lab-ines"
     
     - name: Restart PM2 application
       uses: appleboy/ssh-action@master
@@ -30,6 +30,6 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /var/www/node-cicd-ec2-ines
+          cd /var/www/node-cicd-lab-ines
           npm install
           pm2 reload all
